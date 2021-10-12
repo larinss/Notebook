@@ -17,7 +17,7 @@ public class ThisNoteEditActivity extends AppCompatActivity implements Constant 
     private EditText titleEditText;
     private EditText detailEditText;
     private Button saveButton;
-    private NoteEntity noteEntity = new NoteEntity();
+    private NoteEntity itemEntity = new NoteEntity();
 
 
     @Override
@@ -33,12 +33,12 @@ public class ThisNoteEditActivity extends AppCompatActivity implements Constant 
 
     private void fillView() {
         Intent resultFromNotesListActivity = getIntent();
-        noteEntity = resultFromNotesListActivity.getParcelableExtra(RETURN_RESULT_THIS_NOTE_KEY);
-        if (noteEntity != null) {
+        itemEntity = resultFromNotesListActivity.getParcelableExtra(RETURN_RESULT_THIS_NOTE_KEY);
+        if (itemEntity != null) {
 
-            Integer id = noteEntity.getId();
-            String title = noteEntity.getTitle();
-            String detail = noteEntity.getDetail();
+            Integer id = itemEntity.getId();
+            String title = itemEntity.getTitle();
+            String detail = itemEntity.getDetail();
 
             titleEditText.setText(title);
             detailEditText.setText(detail);
@@ -57,11 +57,11 @@ public class ThisNoteEditActivity extends AppCompatActivity implements Constant 
 
     private void onClickButtonSave() {
 
-        noteEntity.setTitle(titleEditText.getText().toString());
-        noteEntity.setDetail(detailEditText.getText().toString());
+        itemEntity.setTitle(titleEditText.getText().toString());
+        itemEntity.setDetail(detailEditText.getText().toString());
 
         Intent resultForNoteEditListActivityIntent = new Intent();
-        resultForNoteEditListActivityIntent.putExtra(RETURN_RESULT_THIS_NOTE_KEY, noteEntity);
+        resultForNoteEditListActivityIntent.putExtra(RETURN_RESULT_THIS_NOTE_KEY, itemEntity);
         setResult(Activity.RESULT_OK, resultForNoteEditListActivityIntent);
 
         finish();

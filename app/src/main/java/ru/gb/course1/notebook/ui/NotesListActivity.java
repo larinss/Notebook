@@ -63,12 +63,10 @@ public class NotesListActivity extends AppCompatActivity implements Constant {
 
     }
 
-    private void openThisNote(NoteEntity item) {
-        Intent openThisNote= new Intent(this, ThisNoteEditActivity.class);
-        openThisNote.putExtra(RETURN_RESULT_THIS_NOTE_KEY,item);
-       // startActivity(openThisNote);
-       // setResult(RESULT_OK,openThisNote);
-        startActivityForResult(openThisNote,REQUEST_CODE_RESULT_THIS_NOTE);
+    private void openThisNote(NoteEntity itemEntity) {
+        Intent openThisNote = new Intent(this, ThisNoteEditActivity.class);
+        openThisNote.putExtra(RETURN_RESULT_THIS_NOTE_KEY, itemEntity);
+        startActivityForResult(openThisNote, REQUEST_CODE_RESULT_THIS_NOTE);
 
 
     }
@@ -92,8 +90,8 @@ public class NotesListActivity extends AppCompatActivity implements Constant {
         adapter.setData(notesRepo.getNotes());
     }
 
-    private void onItemClick(NoteEntity item) {
-        openThisNote(item);
+    private void onItemClick(NoteEntity itemEntity) {
+        openThisNote(itemEntity);
     }
 
     @Override
