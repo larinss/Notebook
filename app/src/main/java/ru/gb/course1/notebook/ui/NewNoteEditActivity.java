@@ -12,10 +12,9 @@ import ru.gb.course1.notebook.domain.Constant;
 import ru.gb.course1.notebook.domain.NoteEntity;
 
 import android.content.Intent;
-import android.widget.TextView;
 
 
-public class NoteEditActivity extends AppCompatActivity implements Constant {
+public class NewNoteEditActivity extends AppCompatActivity implements Constant {
 
     private EditText titleEditText;
     private EditText detailEditText;
@@ -25,7 +24,7 @@ public class NoteEditActivity extends AppCompatActivity implements Constant {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_note_edit);
+        setContentView(R.layout.activity_new_note_edit);
 
         initView();
         saveButton.setOnClickListener(view -> onClickButtonSave());
