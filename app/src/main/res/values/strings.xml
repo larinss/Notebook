@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Notebook</string>
+    <string name="create_note_text_title">Создать заметку</string>
+    <string name="notes_heading_hint">Заголовок</string>
+    <string name="notes_text_hint">Текст заметки</string>
+    <string name="save_button_text">Сохранить</string>
 </resources>

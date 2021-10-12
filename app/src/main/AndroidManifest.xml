@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Notebook">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.ThisNoteEditActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.NewNoteEditActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.NotesListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
