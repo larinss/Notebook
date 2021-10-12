@@ -11,7 +11,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -64,13 +63,18 @@ public class NotesListActivity extends AppCompatActivity implements Constant {
 
     }
 
-    private void openThisNote() {
+    private void openThisNote(NoteEntity item) {
+        Intent openThisNote= new Intent(this, ThisNoteEditActivity.class);
+        openThisNote.putExtra(RETURN_RESULT_THIS_NOTE_KEY,item);
+       // startActivity(openThisNote);
+       // setResult(RESULT_OK,openThisNote);
+        startActivityForResult(openThisNote,REQUEST_CODE_RESULT_THIS_NOTE);
 
 
     }
 
     private void openNewNote() {
-        Intent openNewNoteIntent = new Intent(this, NoteEditActivity.class);
+        Intent openNewNoteIntent = new Intent(this, NewNoteEditActivity.class);
         startActivityForResult(openNewNoteIntent, REQUEST_CODE_RESULT_NEW_NOTE);
 
     }
@@ -89,7 +93,7 @@ public class NotesListActivity extends AppCompatActivity implements Constant {
     }
 
     private void onItemClick(NoteEntity item) {
-        openThisNote();
+        openThisNote(item);
     }
 
     @Override
@@ -101,6 +105,17 @@ public class NotesListActivity extends AppCompatActivity implements Constant {
                 NoteEntity noteEntity = data.getParcelableExtra(RETURN_RESULT_NEW_NOTE_KEY);
                 if (noteEntity != null) {
                     notesRepo.createNote(noteEntity);
+
+                }
+
+            }
+        }
+        if (requestCode == REQUEST_CODE_RESULT_THIS_NOTE) {
+            if (resultCode == Activity.RESULT_OK) {
+                assert data != null;
+                NoteEntity noteEntity = data.getParcelableExtra(RETURN_RESULT_THIS_NOTE_KEY);
+                if (noteEntity != null) {
+                    notesRepo.updateNote(noteEntity.getId(), noteEntity);
 
                 }
 
