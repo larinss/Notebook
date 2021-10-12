@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_item_note">16dp</dimen>
+    <dimen name="main_margin_new_notes_screen">8dp</dimen>
+    <dimen name="heading_text_size">28sp</dimen>
+    <dimen name="notes_text_size">18sp</dimen>
+    <dimen name="padding_card_view">8dp</dimen>
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+</resources>
